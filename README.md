@@ -34,7 +34,7 @@ jobs:
     - name: Run container
       run: docker-compose up -d 
     
-    - uses: ./
+    - uses: apogiatzis/ngrok-tunneling-action@v0.1.1
       with:
         timeout: 1h
         port: 4000
