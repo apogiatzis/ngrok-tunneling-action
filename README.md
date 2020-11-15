@@ -16,7 +16,7 @@ This action accepts the following parameters
 
 Here is an example of using this action:
 
-```
+```yaml
 name: CI
 on: push
 

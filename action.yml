@@ -1,5 +1,10 @@
 name: 'Ngrok TCP Tunelling'
 description: 'A github action for tunelling TCP traffic from within Workflow environemt'
+
+branding:
+  icon: 'activity'  
+  color: 'green'
+
 inputs:
   timeout:  
     description: 'Challenge deployment timeout'
