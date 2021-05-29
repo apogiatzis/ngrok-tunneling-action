@@ -34,5 +34,5 @@ runs:
       shell: bash
     - run: ./ngrok authtoken ${{ inputs.ngrok_authtoken }}
       shell: bash
-    - run: [[ "${{ inputs.background }}" = true ]] && timeout ${{ inputs.timeout }} $(./ngrok ${{ inputs.tunnel_proto }} ${{ inputs.port }})& || timeout ${{ inputs.timeout }} $(./ngrok ${{ inputs.tunnel_proto }} ${{ inputs.port }})
+    - run: if [[ "${{ inputs.background }}" = true ]]; then timeout ${{ inputs.timeout }} ./ngrok ${{ inputs.tunnel_proto }} ${{ inputs.port }} & else timeout ${{ inputs.timeout }} ./ngrok ${{ inputs.tunnel_proto }} ${{ inputs.port }}
       shell: bash
