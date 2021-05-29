@@ -10,6 +10,10 @@ inputs:
     description: 'Challenge deployment timeout'
     required: true
     default: '1h'
+  tunnel_proto:
+    description: 'Tunnel protocol name, one of http, tcp, tls'
+    required: true
+    default: 'http'
   port:
     description: 'The port to forward traffic to'
     required: true
@@ -24,7 +28,7 @@ runs:
       shell: bash
     - run: unzip -qq ngrok-stable-linux-amd64.zip
       shell: bash
-    - run: ./ngrok authtoken ${{ inputs.ngrok_authtoken }}
+    - run: ./ngrok ${{ inputs.ngrock_proto }} authtoken ${{ inputs.ngrok_authtoken }}
       shell: bash
     - run: timeout ${{ inputs.timeout }} ./ngrok tcp ${{ inputs.port }}
       shell: bash
