@@ -11,6 +11,7 @@ This action accepts the following parameters
 | Name| Description | Required  | Default |
 | ------------- |-------------|-----|-----|
 | tunnel_proto | Choose the tunnel protocol. One of http, tcp, tls | No | http |
+| background | If true runs the ngrok process in background | No | false |
 | timeout | After this timeout the deployment will automatically shutdown the tunelling and therefore stop the action. (max is 6 hours) | No | 1h |
 | port | The port in localhost to forward traffic from/to  | Yes | - |
 | ngrok_authtoken | Your ngrok authtoken| Yes | - |
