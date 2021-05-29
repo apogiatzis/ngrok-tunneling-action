@@ -10,6 +10,7 @@ This action accepts the following parameters
 
 | Name| Description | Required  | Default |
 | ------------- |-------------|-----|-----|
+| tunnel_proto | Choose the tunnel protocol. One of http, tcp, tls | No | http |
 | timeout | After this timeout the deployment will automatically shutdown the tunelling and therefore stop the action. (max is 6 hours) | No | 1h |
 | port | The port in localhost to forward traffic from/to  | Yes | - |
 | ngrok_authtoken | Your ngrok authtoken| Yes | - |
@@ -39,4 +40,5 @@ jobs:
         timeout: 1h
         port: 4000
         ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+        tunnel_proto: tcp
 ```
