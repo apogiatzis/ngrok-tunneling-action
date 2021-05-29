@@ -10,6 +10,10 @@ inputs:
     description: 'Challenge deployment timeout'
     required: true
     default: '1h'
+  background:  
+    description: 'Run ngrok in a background process'
+    required: true
+    default: false
   tunnel_proto:
     description: 'Tunnel protocol name, one of http, tcp, tls'
     required: true
@@ -32,3 +36,7 @@ runs:
       shell: bash
     - run: timeout ${{ inputs.timeout }} $(./ngrok ${{ inputs.tunnel_proto }} ${{ inputs.port }})
       shell: bash
+      if: ${{ inputs.background == false }}
+    - run: timeout ${{ inputs.timeout }} $(./ngrok ${{ inputs.tunnel_proto }} ${{ inputs.port }})&
+      shell: bash
+      if: ${{ inputs.background == true }}
